@@ -1,0 +1,4 @@
+RSYNC/
+*~
+*.swp
+BUILD/

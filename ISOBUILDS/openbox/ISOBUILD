@@ -1,0 +1,27 @@
+# ISOBUILD example
+date=`date -u +%Y%m%d`
+iso_name=${iso_name:-AgiliaLinux-OPENBOX-$date}
+arch=${arch:-x86_64}
+package_list=${package_list:-http://core64.agilialinux.ru/setup_variants/OPENBOX.list}
+
+REPO=${REPO:-"file:///home/aix/x86_64/repository/"}
+
+iso_title="AgiliaLinux OPENBOX $arch ($date)"
+add_to_list="agilia-gui-installer agilia-text-installer gdm gcc-libs gcc-g++-libs"
+#remove_from_list="gcc gcc-g++ gcc-java"
+remove_from_list="gcc gcc-g++ gcc-java gutenprint hplip foomatic-db foomatic-db-engine foomatic-filters foomatic-db-nonfree glibc-profile gcc-gfortran gcc-gnat gcc-objc"
+
+do_minimize=1
+pseudoroot_user=1
+empty_root_password=1
+empty_user_password=1
+custom_actions() {
+	echo "Here can be some custom actions you need to perform."
+	# Also, you can use plugins like this:
+	. ${plugindir}/remove_extra_locales
+	. ${plugindir}/gdm-autologin
+
+	cat ${filedir}/.dmrc > ${NODE}/root/.dmrc
+	chown root:root ${NODE}/root/.dmrc
+	echo "guisetup_lang &" >> ${NODE}/root/.config/openbox/autostart.sh
+}
