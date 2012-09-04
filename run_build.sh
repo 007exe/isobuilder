@@ -49,6 +49,6 @@ cp -v $LIVEROOT/fs${bits}/rootfs.sfs $TREE/fs${bits}/
 
 
 # Create final ISO
-( cd $TREE ; ISO_NAME=$ISODIR/$ISONAME ./makeiso.sh )
+( cd $TREE ; ISO_FILE=$ISODIR/$ISONAME ./makeiso.sh )
 
 set +e
