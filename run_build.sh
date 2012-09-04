@@ -48,7 +48,9 @@ cp -v $LIVEROOT/boot/vmlinuz${bits} $TREE/boot/
 cp -v $LIVEROOT/fs${bits}/rootfs.sfs $TREE/fs${bits}/
 
 
+
 # Create final ISO
+mkdir -p $ISODIR
 ( cd $TREE ; ISO_FILE=$ISODIR/$ISONAME ./makeiso.sh )
 
 set +e
