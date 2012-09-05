@@ -3,7 +3,9 @@ set -e
 # Getting current directory, date and host arch
 CWD=`pwd`
 date=`date -u +%Y%m%d`
-hostarch=`uname -m`
+hostarch=${ARCH:-`uname -m`}
+ISOBUILD=${ISOBUILD:-openbox}
+
 if [ "$hostarch" = "x86_64" ] ; then
 	arch=x86_64
 	bits=64
@@ -38,7 +40,7 @@ rm -rf $LIVEROOT
 
 # Now, build rootfs
 echo "Building live system"
-( cd ISOBUILDS/openbox
+( cd ISOBUILDS/${ISOBUILD}
 	iso_name=$NAME arch=$arch REPO=file:///$TREE/repository/ mklivecd -l $LIVECONT -a
 )
 
