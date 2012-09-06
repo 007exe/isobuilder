@@ -88,6 +88,8 @@ if [ "$USE_TESTING" = "1" ] ; then
 	mkdir -p $TREE/repository/_testing
 	rsync -arvh --progress $TESTING_TREE/repository $TREE/repository/_testing
 	( cd $TREE ; mpkg-index )
+fi
+
 
 # Create final ISO
 mkdir -p $ISODIR
