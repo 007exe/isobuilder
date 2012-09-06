@@ -29,7 +29,12 @@ LIVECONT=$CWD/BUILD
 NAME=agilia_live
 LIVEROOT=$LIVECONT/$NAME-$arch
 ISODIR=$CWD/iso
-ISONAME=AgiliaLinux-$arch-$date.iso
+
+ISONAME=AgiliaLinux-core-$arch-$date.iso
+if [ "$USE_TESTING" = "1" ] ; then
+	ISONAME=AgiliaLinux-testing-$arch-$date.iso
+fi
+
 REPO=file:///$TREE/repository/
 
 if [ "$USE_TESTING" = "1" ] ; then
