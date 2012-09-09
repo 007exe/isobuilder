@@ -2,3 +2,4 @@ RSYNC/
 *~
 *.swp
 BUILD/
+pkglist
