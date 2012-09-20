@@ -3,3 +3,4 @@ RSYNC/
 *.swp
 BUILD/
 pkglist
+iso/
