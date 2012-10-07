@@ -1,0 +1,25 @@
+# KDE isobuild
+
+date=`date -u +%Y%m%d`
+iso_name=${iso_name:-AgiliaLinux-KDE-$date}
+arch=${arch:-x86_64}
+package_list=${package_list:-http://core64.agilialinux.ru/setup_variants/KDE.list}
+
+REPO=${REPO:-"file:///home/aix/x86_64/repository/"}
+
+iso_title="AgiliaLinux KDE $arch snapshot $date"
+add_to_list="agilia-gui-installer agilia-text-installer gdm gcc-libs gcc-g++-libs"
+remove_from_list="gcc gcc-g++ gcc-java gutenprint hplip foomatic-db foomatic-db-engine foomatic-filters foomatic-db-nonfree glibc-profile gcc-gfortran gcc-gnat gcc-objc"
+
+do_minimize=1
+pseudoroot_user=1
+empty_root_password=1
+empty_user_password=1
+
+
+custom_actions()
+{
+	. ${plugindir}/remove_extra_locales
+	. ${plugindir}/sudo_nopasswd
+	. ${plugindir}/kdm-autologin
+}
