@@ -79,6 +79,10 @@ echo "Building live system"
 )
 
 # Copy new files to original tree
+rm -f $TREE/boot/initrd${bits}.img
+rm -f $TREE/boot/vmlinuz${bits}
+rm -f $TREE/fs${bits}/rootfs.sfs
+
 cp -v $LIVEROOT/boot/initrd${bits}.img $TREE/boot/
 cp -v $LIVEROOT/boot/vmlinuz${bits} $TREE/boot/
 cp -v $LIVEROOT/fs${bits}/rootfs.sfs $TREE/fs${bits}/
