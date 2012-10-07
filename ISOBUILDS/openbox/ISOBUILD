@@ -9,7 +9,7 @@ REPO=${REPO:-"file:///home/aix/x86_64/repository/"}
 iso_title="AgiliaLinux $arch snapshot $date"
 add_to_list="agilia-gui-installer agilia-text-installer gdm gcc-libs gcc-g++-libs fakeroot fakechroot"
 #remove_from_list="gcc gcc-g++ gcc-java"
-remove_from_list="gcc gcc-g++ gcc-java gutenprint hplip foomatic-db foomatic-db-engine foomatic-filters foomatic-db-nonfree glibc-profile gcc-gfortran gcc-gnat gcc-objc dracut libreoffice jre"
+remove_from_list="gcc gcc-g++ gcc-java gutenprint hplip foomatic-db foomatic-db-engine foomatic-filters foomatic-db-nonfree glibc-profile gcc-gfortran gcc-gnat gcc-objc dracut libreoffice libreoffice-gnome-integration libreoffice-langpack-ru jre"
 
 do_minimize=1
 pseudoroot_user=1
