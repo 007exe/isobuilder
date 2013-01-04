@@ -66,6 +66,15 @@ if [ "$USE_TESTING" = "1" ] ; then
 	( cd $TESTING_TREE && sh ./rsync-update.sh)
 fi
 
+# Check package tree for integrity (to prevent MD5 checksum errors)
+( cd $TREE/repository 
+	echo "Checking MD5 checksums..."
+	RESULT="$(mpkg checklist | grep BAD)"
+	if [ "$RESULT" != "" ] ; then
+		echo "Bad MD5 sums found, build stopped"
+		exit 1
+	fi
+)
 
 # Clean previous builds
 echo "Cleaning previous build directory: $LIVEROOT"
