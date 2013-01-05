@@ -69,7 +69,7 @@ fi
 # Check package tree for integrity (to prevent MD5 checksum errors)
 ( cd $TREE/repository 
 	echo "Checking MD5 checksums..."
-	RESULT="$(mpkg checklist | grep BAD)"
+	RESULT="$(mpkg checklist | grep BAD || true)"
 	if [ "$RESULT" != "" ] ; then
 		echo "Bad MD5 sums found, build stopped"
 		exit 1
